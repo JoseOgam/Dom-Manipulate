@@ -41,3 +41,15 @@ todos.forEach((todo) => {
   p.textContent = todo.text;
   document.querySelector(".container").appendChild(p);
 });
+
+var User = {
+  name: "Joseph",
+  age: 35,
+};
+
+// var userJSON = JSON.stringify(User);
+
+// localStorage.setItem("User", userJSON);
+
+// var show = JSON.parse(localStorage.getItem("User"));
+// console.log(show);
