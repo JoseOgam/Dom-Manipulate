@@ -5,51 +5,55 @@
 // document.querySelector(".container").appendChild(headerTag);
 
 // var header3 = document.createElement("h3");
-// header3.textContent = "Todo list";
+// header3.textContent = "Todo note";
 // header3.style.cssText = "color: brown";
 // document.querySelector(".container").appendChild(header3);
 
-const todos = [
+const notes = [
   {
-    text: "trip to japan",
+    title: "trip to japan",
     completed: false,
   },
   {
-    text: "coding at lakehub academy",
+    title: "coding at lakehub academy",
     completed: false,
   },
   {
-    text: "using JavaScript to code",
+    title: "using JavaScript to code",
     completed: true,
   },
   {
-    text: "trip to lowdwar",
+    title: "trip to lowdwar",
     completed: false,
   },
 ];
 
-const incompleteTodos = todos.filter((todo) => {
-  return !todo.completed;
-});
-
-var pending = document.createElement("h2");
-pending.textContent = `you have ${incompleteTodos.length} left`;
-document.querySelector("body").appendChild(pending);
-
-todos.forEach((todo) => {
-  var p = document.createElement("p");
-  p.textContent = todo.text;
-  document.querySelector(".container").appendChild(p);
-});
-
-var User = {
-  name: "Joseph",
-  age: 35,
+let filters = {
+  searchText: "",
 };
 
-// var userJSON = JSON.stringify(User);
+const renderMovies = (notes, filters) => {
+  var filteredNotes = notes.filter(function (note) {
+    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
+  });
 
-// localStorage.setItem("User", userJSON);
+  document.querySelector(".container").innerHTML = "";
 
-// var show = JSON.parse(localStorage.getItem("User"));
-// console.log(show);
+  filteredNotes.forEach(function (note) {
+    var noteEl = document.createElement("p");
+    noteEl.textContent = note.title;
+    document.querySelector(".container").appendChild(noteEl);
+  });
+};
+renderMovies(notes, filters);
+
+document.querySelector("#search-note").addEventListener("input", (e) => {
+  filters.searchText = e.target.value;
+  renderMovies(notes, filters);
+});
+
+// notes.map((todo) => {
+//   var p = document.createElement("p");
+//   p.textContent = todo.title;
+//   document.querySelector(".container").appendChild(p);
+// });
