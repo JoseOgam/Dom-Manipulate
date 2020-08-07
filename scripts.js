@@ -9,7 +9,7 @@
 // header3.style.cssText = "color: brown";
 // document.querySelector(".container").appendChild(header3);
 
-const notes = [
+var notes = [
   {
     title: "trip to japan",
     completed: false,
@@ -32,10 +32,15 @@ let filters = {
   searchText: "",
 };
 
-const renderMovies = (notes, filters) => {
-  var filteredNotes = notes.filter(function (note) {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
+let notesJSON = localStorage.getItem("notes");
+if (notesJSON !== null) {
+  notes = JSON.parse(notesJSON);
+}
+
+const renderNotes = (notes, filters) => {
+  var filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+  );
 
   document.querySelector(".container").innerHTML = "";
 
@@ -45,11 +50,11 @@ const renderMovies = (notes, filters) => {
     document.querySelector(".container").appendChild(noteEl);
   });
 };
-renderMovies(notes, filters);
+renderNotes(notes, filters);
 
 document.querySelector("#search-note").addEventListener("input", (e) => {
   filters.searchText = e.target.value;
-  renderMovies(notes, filters);
+  renderNotes(notes, filters);
 });
 
 // notes.map((todo) => {
@@ -57,3 +62,15 @@ document.querySelector("#search-note").addEventListener("input", (e) => {
 //   p.textContent = todo.title;
 //   document.querySelector(".container").appendChild(p);
 // });
+
+document.querySelector("#add-notes").addEventListener("click", (e) => {
+  notes.push({
+    title: "kiss",
+    completed: true,
+  });
+  let saveNotes = (notes) => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  };
+  saveNotes(notes);
+  renderNotes(notes, filters);
+});
