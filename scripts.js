@@ -8,7 +8,7 @@ let createTemplate = (todo) => {
           class="list-group-item d-flex justify-content-between align-items-center"
         >
           <span>${todo}</span>
-          <i class="far fa-trash-alt delete"></i>
+          <i class="far fa-trash-alt deleteIcon"></i>
         </li>`;
   todosList.innerHTML += htmlEl;
 };

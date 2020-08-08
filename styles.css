@@ -13,7 +13,7 @@ body {
   color: chocolate;
 }
 
-.delete {
+.deleteIcon {
   cursor: pointer;
   color: red !important;
 }
