@@ -6,7 +6,7 @@ let searchText = document.querySelector(".searchText");
 //function creating html template for each todo added
 let createTemplate = (todo) => {
   var htmlEl = ` <li
-          class="todosList-group-item d-flex justify-content-between align-items-center"
+          class="list-group-item d-flex justify-content-between align-items-center"
         >
           <span>${todo}</span>
           <i class="far fa-trash-alt deleteIcon"></i>
