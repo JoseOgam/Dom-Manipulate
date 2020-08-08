@@ -1,0 +1,18 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background: #22202b;
+}
+
+.container {
+  max-width: 500px;
+}
+
+.content {
+  color: chocolate;
+}
+
+.delete {
+  cursor: pointer;
+}
