@@ -3,6 +3,7 @@ let deleteIcon = document.querySelector(".deleteIcon");
 let todosList = document.querySelector(".todosList");
 let searchText = document.querySelector("searchText");
 
+//function creating html template for each todo added
 let createTemplate = (todo) => {
   var htmlEl = ` <li
           class="list-group-item d-flex justify-content-between align-items-center"
@@ -13,6 +14,7 @@ let createTemplate = (todo) => {
   todosList.innerHTML += htmlEl;
 };
 
+//function responsible for adding todo
 addTodo.addEventListener("submit", (e) => {
   e.preventDefault();
   var todo = addTodo.add.value.trim();
@@ -20,5 +22,12 @@ addTodo.addEventListener("submit", (e) => {
   if (todo.length) {
     createTemplate(todo);
     addTodo.reset();
+  }
+});
+
+//delete todo
+todosList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deleteIcon")) {
+    e.target.parentElement.remove();
   }
 });
