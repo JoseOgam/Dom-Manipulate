@@ -49,11 +49,16 @@ searchText.addEventListener("keyup", () => {
   filteredTodos(condition);
 });
 
-try {
-  // throw new Error("my custom error");
-  let car = newCar;
-} catch (e) {
-  console.log("e", e);
-} finally {
-  console.log("this will always print");
-}
+// try {
+//   // throw new Error("my custom error");
+//   let car = newCar;
+// } catch (e) {
+//   console.log("e", e);
+// } finally {
+//   console.log("this will always print");
+// }
+
+let promise = new Promise(function (resolve, reject) {
+  setTimeout(reject, 1000, "someValue");
+});
+console.log(promise);
