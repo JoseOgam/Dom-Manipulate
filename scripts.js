@@ -54,4 +54,6 @@ try {
   let car = newCar;
 } catch (e) {
   console.log("e", e);
+} finally {
+  console.log("this will always print");
 }
