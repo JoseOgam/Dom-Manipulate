@@ -48,3 +48,10 @@ searchText.addEventListener("keyup", () => {
 
   filteredTodos(condition);
 });
+
+try {
+  // throw new Error("my custom error");
+  let car = newCar;
+} catch (e) {
+  console.log("e", e);
+}
