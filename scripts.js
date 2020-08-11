@@ -61,4 +61,8 @@ searchText.addEventListener("keyup", () => {
 let promise = new Promise(function (resolve, reject) {
   setTimeout(reject, 1000, "someValue");
 });
-console.log(promise);
+
+promise.then(
+  (value) => console.log("fulfilled :" + value),
+  (error) => console.log("rejected :" + error)
+);
